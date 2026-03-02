@@ -5,7 +5,7 @@ var all_pokemon = {}
 var filtered_names = [] 
 
 # Configuration
-var base_url = "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/"
+var base_url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"
 
 # Node References
 @onready var search_input = $VBoxContainer/SearchInput
@@ -84,14 +84,7 @@ func calculate_and_display(p_name: String, p_id: int):
 	result_label.text = info
 
 func load_pokemon_image(id: int):
-	# Format ID: Pad with zeros to 3 digits if < 1000 (1 -> 001, 15 -> 015, 1025 -> 1025)
-	var formatted_id = ""
-	if id < 1000:
-		formatted_id = "%03d" % id
-	else:
-		formatted_id = str(id)
-	
-	var final_url = base_url + formatted_id + ".png"
+	var final_url = base_url + str(id) + ".png"
 	
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
