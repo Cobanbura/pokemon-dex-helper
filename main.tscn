@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://djdr63lohpheh"]
+
+[ext_resource type="Script" uid="uid://mt8k3hllfd3y" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bjfwy7bfuciac" path="res://icon.svg" id="1_ig7tw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0xm2m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -237.5
+offset_top = 5.0
+offset_right = 237.5
+offset_bottom = 654.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="SlotSettings" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SlotLabel" type="Label" parent="VBoxContainer/SlotSettings"]
+layout_mode = 2
+text = "Card Capacity Per Page:"
+
+[node name="SlotSpinBox" type="SpinBox" parent="VBoxContainer/SlotSettings"]
+layout_mode = 2
+min_value = 1.0
+value = 9.0
+
+[node name="SearchInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Pokemon name..."
+
+[node name="PokemonImage" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(475, 475)
+layout_mode = 2
+texture = ExtResource("1_ig7tw")
+stretch_mode = 4
+
+[node name="ResultsPanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ResultsLabel" type="RichTextLabel" parent="VBoxContainer/ResultsPanel"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PokemonList" type="ItemList" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 339.0
+offset_top = 98.0
+offset_right = 814.0
+offset_bottom = 314.0
+auto_height = true
